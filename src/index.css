@@ -2,41 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* The Manhattan Project Design System - Atomic Intelligence Aesthetic
+Inspired by Oppenheimer (2023) - Dark, cinematic, nuclear themes
 All colors MUST be HSL.
 */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Atomic Foundation - Carbon Black Base */
+    --background: 0 0% 4%;
+    --foreground: 180 100% 95%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 0 0% 6%;
+    --card-foreground: 180 100% 95%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 8%;
+    --popover-foreground: 180 100% 95%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    /* Atomic Energy - Neon Cyan Primary */
+    --primary: 180 100% 50%;
+    --primary-foreground: 0 0% 4%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    /* Nuclear Glow - Subtle Cyan */
+    --secondary: 180 30% 20%;
+    --secondary-foreground: 180 100% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    /* Atomic Decay - Muted Grays */
+    --muted: 0 0% 12%;
+    --muted-foreground: 180 20% 65%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    /* Nuclear Reaction - Atomic Orange */
+    --accent: 15 100% 60%;
+    --accent-foreground: 0 0% 4%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    /* Critical Mass - Danger Red */
+    --destructive: 0 100% 55%;
+    --destructive-foreground: 180 100% 95%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    /* Reactor Core - Borders */
+    --border: 180 20% 20%;
+    --input: 180 20% 15%;
+    --ring: 180 100% 50%;
 
-    --radius: 0.5rem;
+    --radius: 0.25rem;
+
+    /* Atomic Typography */
+    --font-atomic: 'Crimson Text', serif;
+    --font-code: 'JetBrains Mono', monospace;
+
+    /* Nuclear Gradients */
+    --gradient-atomic: linear-gradient(135deg, hsl(180 100% 50%), hsl(15 100% 60%));
+    --gradient-neural: radial-gradient(circle at center, hsl(180 100% 50% / 0.1), transparent 70%);
+    --gradient-decay: linear-gradient(180deg, hsl(0 0% 4%), hsl(0 0% 8%));
+
+    /* Atomic Shadows */
+    --shadow-nuclear: 0 0 50px hsl(180 100% 50% / 0.3);
+    --shadow-atomic: 0 20px 60px hsl(0 0% 0% / 0.8);
+    
+    /* Film Grain Texture */
+    --grain-pattern: url("data:image/svg+xml,%3Csvg viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
+
+    /* Atomic Transitions */
+    --transition-atomic: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-nuclear: all 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 
     --sidebar-background: 0 0% 98%;
 
@@ -101,5 +129,75 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: var(--font-atomic);
+    background-image: var(--grain-pattern);
+    overflow-x: hidden;
+  }
+
+  /* Atomic Typography Classes */
+  .font-atomic {
+    font-family: var(--font-atomic);
+  }
+  
+  .font-code {
+    font-family: var(--font-code);
+  }
+
+  /* Nuclear Glow Effects */
+  .glow-nuclear {
+    box-shadow: var(--shadow-nuclear);
+  }
+  
+  .glow-atomic {
+    box-shadow: var(--shadow-atomic);
+  }
+
+  /* Cinematic Text Effects */
+  .text-wide {
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+  }
+
+  .text-nuclear {
+    background: var(--gradient-atomic);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Atomic Animations */
+  @keyframes neural-pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.05); }
+  }
+
+  @keyframes atomic-glow {
+    0%, 100% { box-shadow: 0 0 20px hsl(180 100% 50% / 0.3); }
+    50% { box-shadow: 0 0 40px hsl(180 100% 50% / 0.6); }
+  }
+
+  @keyframes nuclear-fade {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-neural-pulse {
+    animation: neural-pulse 3s ease-in-out infinite;
+  }
+
+  .animate-atomic-glow {
+    animation: atomic-glow 2s ease-in-out infinite;
+  }
+
+  .animate-nuclear-fade {
+    animation: nuclear-fade 1.2s ease-out;
+  }
+
+  /* Neural Grid Background */
+  .neural-grid {
+    background-image: 
+      linear-gradient(hsl(180 100% 50% / 0.1) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(180 100% 50% / 0.1) 1px, transparent 1px);
+    background-size: 50px 50px;
   }
 }

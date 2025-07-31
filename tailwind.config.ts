@@ -18,6 +18,10 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				atomic: ['var(--font-atomic)'],
+				code: ['var(--font-code)'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
@@ -62,6 +66,19 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-atomic': 'var(--gradient-atomic)',
+				'gradient-neural': 'var(--gradient-neural)',
+				'gradient-decay': 'var(--gradient-decay)',
+			},
+			boxShadow: {
+				'nuclear': 'var(--shadow-nuclear)',
+				'atomic': 'var(--shadow-atomic)',
+			},
+			transitionTimingFunction: {
+				'atomic': 'var(--transition-atomic)',
+				'nuclear': 'var(--transition-nuclear)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
