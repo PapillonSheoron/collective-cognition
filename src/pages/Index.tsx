@@ -13,29 +13,32 @@ const Index = () => {
     <div className="min-h-screen bg-background relative">
       {/* Matrix background effect */}
       <MatrixBackground />
-      {/* Hero Section - Above the Fold */}
-      <HeroSection />
-      
-      {/* Section 1: The Original Manhattan Project */}
-      <OriginalProject />
-      
-      {/* Section 2: The New Manhattan Project */}
-      <NewProject />
-      
-      {/* Section 3: What We're Building */}
-      <WhatWereBuilding />
-      
-      {/* Section 4: Feature Table */}
-      <FeatureTable />
-      
-      {/* Section 5: Demo */}
-      <DemoSection />
-      
-      {/* Section 6: Philosophy */}
-      <PhilosophySection />
-      
-      {/* Section 7: Call to Action */}
-      <CallToAction />
+      {/* Main content wrapper to sit above background */}
+      <div className="relative z-10">
+        {/* Hero Section - Above the Fold */}
+        <HeroSection />
+
+        {/* Section 1: The Original Manhattan Project */}
+        <OriginalProject />
+
+        {/* Section 2: The New Manhattan Project */}
+        <NewProject />
+
+        {/* Section 3: What We're Building */}
+        <WhatWereBuilding />
+
+        {/* Section 4: Feature Table */}
+        <FeatureTable />
+
+        {/* Section 5: Demo */}
+        <DemoSection />
+
+        {/* Section 6: Philosophy */}
+        <PhilosophySection />
+
+        {/* Section 7: Call to Action */}
+        <CallToAction />
+      </div>
     </div>
   );
 };
