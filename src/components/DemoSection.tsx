@@ -1,8 +1,11 @@
 import { Button } from "@/components/ui/button";
+import { InteractiveAgentDemo } from "./InteractiveAgentDemo";
+import { ParallaxSection } from "./ParallaxSection";
 
 export const DemoSection = () => {
   return (
-    <section className="py-20 md:py-32 px-6 relative">
+    <ParallaxSection speed={0.3}>
+      <section className="py-20 md:py-32 px-6 relative">
       <div className="max-w-4xl mx-auto text-center">
         {/* Section Header */}
         <div className="mb-16">
@@ -31,29 +34,8 @@ export const DemoSection = () => {
                 Watch agents write a report, catch a contradiction, and resolve it—without human intervention.
               </p>
               
-              {/* Demo Visualization */}
-              <div className="grid md:grid-cols-3 gap-6 py-8">
-                <div className="space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-primary/20 rounded-full flex items-center justify-center border border-primary/50">
-                    <span className="text-primary font-code font-bold">A1</span>
-                  </div>
-                  <p className="font-code text-sm text-muted-foreground">Agent 1: Writing</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-accent/20 rounded-full flex items-center justify-center border border-accent/50">
-                    <span className="text-accent font-code font-bold">A2</span>
-                  </div>
-                  <p className="font-code text-sm text-muted-foreground">Agent 2: Contradicting</p>
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="w-16 h-16 mx-auto bg-primary rounded-full flex items-center justify-center animate-atomic-glow">
-                    <span className="text-primary-foreground font-code font-bold">A3</span>
-                  </div>
-                  <p className="font-code text-sm text-foreground">Agent 3: Resolving</p>
-                </div>
-              </div>
+              {/* Interactive Demo */}
+              <InteractiveAgentDemo />
 
               <Button 
                 className="bg-primary hover:bg-primary/80 text-primary-foreground font-code text-lg px-8 py-6 shadow-nuclear"
@@ -85,6 +67,7 @@ export const DemoSection = () => {
           />
         </svg>
       </div>
-    </section>
+      </section>
+    </ParallaxSection>
   );
 };

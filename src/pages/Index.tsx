@@ -6,10 +6,13 @@ import { FeatureTable } from "@/components/FeatureTable";
 import { DemoSection } from "@/components/DemoSection";
 import { PhilosophySection } from "@/components/PhilosophySection";
 import { CallToAction } from "@/components/CallToAction";
+import { MatrixBackground } from "@/components/MatrixBackground";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Matrix background effect */}
+      <MatrixBackground />
       {/* Hero Section - Above the Fold */}
       <HeroSection />
       
