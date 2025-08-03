@@ -60,6 +60,17 @@ This project is built with:
 - shadcn-ui
 - Tailwind CSS
 
+## Environment variables
+
+To enable the request access form and connect to the backend database, create a `.env` file based on `.env.example` and provide your Supabase project credentials:
+
+```
+VITE_SUPABASE_URL=your-project-url
+VITE_SUPABASE_ANON_KEY=your-anon-key
+```
+
+These values are used by the contact form to store submissions for "Request Access", "Talk to the team", and "Deploy it yourself" actions.
+
 ## How can I deploy this project?
 
 Simply open [Lovable](https://lovable.dev/projects/14baf87f-3257-4cac-8ca1-bbf93bff3d92) and click on Share -> Publish.
