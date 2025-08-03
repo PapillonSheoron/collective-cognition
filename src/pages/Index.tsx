@@ -3,7 +3,6 @@ import { OriginalProject } from "@/components/OriginalProject";
 import { NewProject } from "@/components/NewProject";
 import { WhatWereBuilding } from "@/components/WhatWereBuilding";
 import { FeatureTable } from "@/components/FeatureTable";
-import { DemoSection } from "@/components/DemoSection";
 import { PhilosophySection } from "@/components/PhilosophySection";
 import { CallToAction } from "@/components/CallToAction";
 import { InteractiveParticles } from "@/components/InteractiveParticles";
@@ -26,16 +25,10 @@ const Index = () => {
       {/* Section 3: What We're Building */}
       <WhatWereBuilding />
       
-      {/* Section 4: Feature Table */}
-      <FeatureTable />
-      
-      {/* Section 5: Demo */}
-      <DemoSection />
-      
-      {/* Section 6: Philosophy */}
+      {/* Section 4: Philosophy */}
       <PhilosophySection />
       
-      {/* Section 7: Call to Action */}
+      {/* Section 5: Call to Action */}
       <CallToAction />
     </div>
   );
