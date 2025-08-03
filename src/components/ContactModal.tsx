@@ -4,7 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { supabase } from '@/integrations/supabase/client';
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "@/integrations/firebase/client";
 import { useToast } from '@/hooks/use-toast';
 
 interface ContactModalProps {
@@ -29,17 +30,14 @@ export const ContactModal = ({ isOpen, onClose, requestType, title }: ContactMod
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from('contact_requests')
-        .insert({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company,
-          message: formData.message,
-          request_type: requestType
-        });
-
-      if (error) throw error;
+      await addDoc(collection(db, "contact_requests"), {
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        message: formData.message,
+        request_type: requestType,
+        created_at: new Date().toISOString(),
+      });
 
       toast({
         title: "Request submitted successfully!",
