@@ -6,10 +6,14 @@ import { FeatureTable } from "@/components/FeatureTable";
 import { DemoSection } from "@/components/DemoSection";
 import { PhilosophySection } from "@/components/PhilosophySection";
 import { CallToAction } from "@/components/CallToAction";
+import { InteractiveParticles } from "@/components/InteractiveParticles";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background relative">
+      {/* Interactive Particles Background */}
+      <InteractiveParticles />
+      
       {/* Hero Section - Above the Fold */}
       <HeroSection />
       
