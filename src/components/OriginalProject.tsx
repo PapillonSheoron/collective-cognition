@@ -1,9 +1,6 @@
-import { ParallaxSection } from "./ParallaxSection";
-
 export const OriginalProject = () => {
   return (
-    <ParallaxSection speed={0.4}>
-      <section className="py-20 md:py-32 px-6 relative hover-glow ripple-effect">
+    <section className="py-20 md:py-32 px-6 relative">
       <div className="max-w-4xl mx-auto">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -51,9 +48,8 @@ export const OriginalProject = () => {
         </div>
       </div>
 
-      {/* Enhanced Atomic Glow Effect */}
-      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-neural opacity-20 rounded-full blur-3xl pointer-events-none animate-atomic-glow" />
-      </section>
-    </ParallaxSection>
+      {/* Atomic Glow Effect */}
+      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-gradient-neural opacity-20 rounded-full blur-3xl pointer-events-none" />
+    </section>
   );
 };

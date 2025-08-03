@@ -1,31 +1,15 @@
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState } from "react";
 import neuralManhattan from "@/assets/neural-manhattan.jpg";
-import { TypingAnimation } from "./TypingAnimation";
-import { InteractiveParticles } from "./InteractiveParticles";
 
 export const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [mousePos, setMousePos] = useState({ x: 50, y: 50 });
-  const [showTyping, setShowTyping] = useState(false);
 
   useEffect(() => {
     setIsVisible(true);
-    const timer = setTimeout(() => setShowTyping(true), 2000);
-    return () => clearTimeout(timer);
-  }, []);
-
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width) * 100;
-    const y = ((e.clientY - rect.top) / rect.height) * 100;
-    setMousePos({ x, y });
   }, []);
 
   return (
-    <section 
-      className="relative min-h-screen flex items-center justify-center overflow-hidden cursor-none"
-      onMouseMove={handleMouseMove}
-    >
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Neural Manhattan Background */}
       <div className="absolute inset-0">
         <img 
@@ -37,27 +21,17 @@ export const HeroSection = () => {
         <div className="absolute inset-0 neural-grid opacity-30" />
       </div>
 
-      {/* Interactive Neural Particles */}
-      <InteractiveParticles />
-      
-      {/* Enhanced Neural Particles */}
+      {/* Animated Neural Particles */}
       <div className="absolute inset-0">
-        {[...Array(18)].map((_, i) => (
+        {[...Array(12)].map((_, i) => (
           <div
             key={i}
-            className="absolute w-2 h-2 bg-primary rounded-full animate-neural-pulse interactive-particle hover-glow"
+            className="absolute w-2 h-2 bg-primary rounded-full animate-neural-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
               animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 3}s`,
-              transform: `translate(${(mousePos.x - 50) * 0.02}px, ${(mousePos.y - 50) * 0.02}px)`,
-            }}
-            onClick={(e) => {
-              e.currentTarget.style.animation = 'none';
-              setTimeout(() => {
-                e.currentTarget.style.animation = '';
-              }, 100);
+              animationDuration: `${2 + Math.random() * 3}s`
             }}
           />
         ))}
@@ -72,14 +46,10 @@ export const HeroSection = () => {
             <span className="block text-foreground">Project</span>
           </h1>
 
-          {/* Subtitle with typing animation */}
-          <div className="font-code text-lg md:text-xl text-muted-foreground mb-12 tracking-wider">
-            {showTyping ? (
-              <TypingAnimation text="1945 was the first. This is the last." speed={80} />
-            ) : (
-              <span className="opacity-0">1945 was the first. This is the last.</span>
-            )}
-          </div>
+          {/* Subtitle */}
+          <p className="font-code text-lg md:text-xl text-muted-foreground mb-12 tracking-wider">
+            1945 was the first. This is the last.
+          </p>
         </div>
 
         {/* Hero Description - Delayed Animation */}
@@ -99,10 +69,10 @@ export const HeroSection = () => {
 
         {/* Tagline - Final Animation */}
         <div className={`transition-all duration-2000 delay-1400 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-12'}`}>
-          <div className="border border-primary/30 rounded-sm p-8 bg-card/50 backdrop-blur-sm hover-glow ripple-effect group">
-            <blockquote className="font-atomic text-xl md:text-2xl italic text-foreground leading-relaxed relative z-10">
+          <div className="border border-primary/30 rounded-sm p-8 bg-card/50 backdrop-blur-sm">
+            <blockquote className="font-atomic text-xl md:text-2xl italic text-foreground leading-relaxed">
               <span className="block mb-2">"We split the atom.</span>
-              <span className="block text-primary group-hover:text-accent transition-colors duration-500">Now we must split the mind."</span>
+              <span className="block text-primary">Now we must split the mind."</span>
             </blockquote>
           </div>
         </div>
