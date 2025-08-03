@@ -47,12 +47,9 @@ export const ScrollEffects = ({ children }: ScrollEffectsProps) => {
   };
 
   return (
-    <div 
+    <div
       className="relative min-h-screen"
       onClick={handleClick}
-      style={{
-        cursor: `url("data:image/svg+xml,%3Csvg width='32' height='32' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='16' cy='16' r='6' fill='%23${Math.floor(Math.random()*16777215).toString(16)}' opacity='0.8'/%3E%3C/svg%3E") 16 16, auto`
-      }}
     >
       {/* Dynamic background that follows mouse */}
       <div 
