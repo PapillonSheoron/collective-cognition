@@ -4,8 +4,6 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { collection, addDoc } from "firebase/firestore";
-import { db } from "@/integrations/firebase/client";
 import { useToast } from '@/hooks/use-toast';
 
 interface ContactModalProps {
@@ -30,17 +28,27 @@ export const ContactModal = ({ isOpen, onClose, requestType, title }: ContactMod
     setIsSubmitting(true);
 
     try {
-      await addDoc(collection(db, "contact_requests"), {
-        name: formData.name,
-        email: formData.email,
-        company: formData.company,
-        message: formData.message,
-        request_type: requestType,
-        created_at: new Date().toISOString(),
+      const response = await fetch('https://formsubmit.co/ajax/dhruvgargpkl@gmail.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company,
+          message: formData.message,
+          request_type: requestType,
+        }),
       });
 
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+
       toast({
-        title: "Request submitted successfully!",
+        title: 'Request submitted successfully!',
         description: "We'll get back to you within 24 hours.",
       });
 
@@ -49,9 +57,9 @@ export const ContactModal = ({ isOpen, onClose, requestType, title }: ContactMod
     } catch (error) {
       console.error('Error submitting request:', error);
       toast({
-        title: "Error submitting request",
-        description: "Please try again later.",
-        variant: "destructive",
+        title: 'Error submitting request',
+        description: 'Please try again later.',
+        variant: 'destructive',
       });
     } finally {
       setIsSubmitting(false);
