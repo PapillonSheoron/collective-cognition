@@ -75,17 +75,15 @@ export const CallToAction = () => {
 
           {/* Action Buttons */}
           <div className="flex flex-col md:flex-row gap-6 justify-center pt-12">
-            <Button
-              type="button"
+            <Button 
               onClick={() => openModal('access', 'Request Access')}
               className="bg-primary hover:bg-primary/80 text-primary-foreground font-code text-lg px-8 py-6 shadow-nuclear hover:shadow-nuclear-lg transform hover:scale-105 transition-all duration-300"
               size="lg"
             >
               → Request Access
             </Button>
-
-            <Button
-              type="button"
+            
+            <Button 
               onClick={() => openModal('talk_to_team', 'Talk to the Team')}
               variant="outline"
               className="border-accent text-accent hover:bg-accent hover:text-accent-foreground font-code text-lg px-8 py-6 hover:shadow-atomic transform hover:scale-105 transition-all duration-300"
@@ -93,9 +91,8 @@ export const CallToAction = () => {
             >
               → Talk to the team
             </Button>
-
-            <Button
-              type="button"
+            
+            <Button 
               onClick={() => openModal('deploy', 'Deploy it Yourself')}
               variant="outline"
               className="border-primary/50 text-primary hover:bg-primary/10 font-code text-lg px-8 py-6 hover:shadow-glow transform hover:scale-105 transition-all duration-300"
