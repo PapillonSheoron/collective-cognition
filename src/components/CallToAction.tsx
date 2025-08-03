@@ -1,6 +1,25 @@
+import { useState } from 'react';
 import { Button } from "@/components/ui/button";
+import { ContactModal } from '@/components/ContactModal';
 
 export const CallToAction = () => {
+  const [modalState, setModalState] = useState<{
+    isOpen: boolean;
+    type: 'access' | 'talk_to_team' | 'deploy';
+    title: string;
+  }>({
+    isOpen: false,
+    type: 'access',
+    title: ''
+  });
+
+  const openModal = (type: 'access' | 'talk_to_team' | 'deploy', title: string) => {
+    setModalState({ isOpen: true, type, title });
+  };
+
+  const closeModal = () => {
+    setModalState({ ...modalState, isOpen: false });
+  };
   return (
     <section className="py-20 md:py-32 px-6 relative">
       <div className="max-w-4xl mx-auto">
@@ -57,28 +76,38 @@ export const CallToAction = () => {
           {/* Action Buttons */}
           <div className="flex flex-col md:flex-row gap-6 justify-center pt-12">
             <Button 
-              className="bg-primary hover:bg-primary/80 text-primary-foreground font-code text-lg px-8 py-6 shadow-nuclear"
+              onClick={() => openModal('access', 'Request Access')}
+              className="bg-primary hover:bg-primary/80 text-primary-foreground font-code text-lg px-8 py-6 shadow-nuclear hover:shadow-nuclear-lg transform hover:scale-105 transition-all duration-300"
               size="lg"
             >
               → Request Access
             </Button>
             
             <Button 
+              onClick={() => openModal('talk_to_team', 'Talk to the Team')}
               variant="outline"
-              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground font-code text-lg px-8 py-6"
+              className="border-accent text-accent hover:bg-accent hover:text-accent-foreground font-code text-lg px-8 py-6 hover:shadow-atomic transform hover:scale-105 transition-all duration-300"
               size="lg"
             >
               → Talk to the team
             </Button>
             
             <Button 
+              onClick={() => openModal('deploy', 'Deploy it Yourself')}
               variant="outline"
-              className="border-primary/50 text-primary hover:bg-primary/10 font-code text-lg px-8 py-6"
+              className="border-primary/50 text-primary hover:bg-primary/10 font-code text-lg px-8 py-6 hover:shadow-glow transform hover:scale-105 transition-all duration-300"
               size="lg"
             >
               → Deploy it yourself
             </Button>
           </div>
+
+          <ContactModal
+            isOpen={modalState.isOpen}
+            onClose={closeModal}
+            requestType={modalState.type}
+            title={modalState.title}
+          />
         </div>
       </div>
 
